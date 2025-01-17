@@ -1,0 +1,58 @@
+html {
+    min-height: 100%;
+    background: rgb(0,255,60);
+    background: -moz-linear-gradient(13deg, rgba(0,255,60,1) 0%, rgba(115,43,255,1) 100%);
+    background: -webkit-linear-gradient(13deg, rgba(0,255,60,1) 0%, rgba(115,43,255,1) 100%);
+    background: linear-gradient(13deg, rgba(0,255,60,1) 0%, rgba(115,43,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ff3c",endColorstr="#732bff",GradientType=1); 
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.658);
+    width: 30%;
+    border-radius: 20px;
+    padding: 2.3em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.container-overlay {
+    background-color: rgba(255, 255, 255, 0.877);
+    width: 90%;
+    border-radius: 20px;
+    padding: 2.3em;
+    position: absolute;
+    margin-top: 30em;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.btn-login {
+    margin-top: 20px;
+    border-radius: 15px;
+    padding: 0.5em 3em 0.5em 3em;
+}
+
+.action-btn {
+    padding: 0.5em 5em 0.5em 5em !important;
+    margin-top: 0.5em;
+}
+
+.invisible {
+    display: none !important;
+}
+
+.sub-container {
+    padding: 0em 1em 0em 1em;
+    margin-top: 1em;
+}
+
+.sub-container-inner {
+    padding: 2em 3em 2em 3em;
+    border-radius: 15px;
+}
