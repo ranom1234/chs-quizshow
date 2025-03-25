@@ -1,10 +1,11 @@
 <?php
+require_once("CONSTANTS.php");
 
 class Database {
-    private $host = "localhost";
-    private $table = "quizshow";
-    private $username = "username";
-    private $password = "password";
+    private $host = HOST;
+    private $table = TABLE;
+    private $username = USERNAME;
+    private $password = PASSWORD;
     protected $connection;
 
     protected function connectDB() {
