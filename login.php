@@ -43,6 +43,7 @@
           <a class="nav-link <?php if(!$_SESSION["loggedin"]) {echo "invisible";}?>" href="new_game.php">Neues Spiel generieren</a>
           <a class="nav-link <?php if(!$_SESSION["loggedin"] && !$_SESSION["role"] == "1") {echo "invisible";}?>" href="Admin/index.php">Administration</a>
           <a class="nav-link active <?php if($_SESSION["loggedin"]) {echo "invisible";}?>" href="login.php">Login</a>
+            <a class="nav-link <?php if($_SESSION["loggedin"]) {echo "invisible";}?>" href="frage.php">Aktives Spiel</a>
           <a class="nav-link active <?php if(!$_SESSION["loggedin"]) {echo "invisible";}?>" href="logout.php">Logout</a>
         </div>
       </div>
@@ -69,7 +70,8 @@
         <label for="floatingPassword">Passwort</label>
       </div>
 
-      <input type="submit" value="login" class="btn btn-primary btn-login">
+      <input type="submit" value="Login (Streaming)" class="btn btn-primary btn-login">
+        <a href="frage.php" class="btn btn-secondary btn-login">Aktive Frage</a>
 
     </form>
   </div>

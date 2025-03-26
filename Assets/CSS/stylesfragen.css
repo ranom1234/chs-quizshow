@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    background-color: red;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.frageview {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5em;
+    padding: 3em;
+}
+
+.fragecontainer {
+    background-color: white;
+    border-radius: 14px;
+    padding: 0.5em;
+    margin-bottom: 0.6em;
+    -webkit-box-shadow: -3px 6px 23px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: -3px 6px 23px -8px rgba(0,0,0,0.75);
+    box-shadow: -3px 6px 23px -8px rgba(0,0,0,0.75);
+    font-weight: 600;
+    font-size: 2em;
+}
+
+.antwortcontainer {
+    background-color: white;
+    border-radius: 14px;
+    padding: 1em;
+    margin-bottom: 0.5em;
+    margin-right: auto;
+    margin-left: auto;
+    width: 49%;
+    -webkit-box-shadow: -3px 6px 23px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: -3px 6px 23px -8px rgba(0,0,0,0.75);
+    box-shadow: -3px 6px 23px -8px rgba(0,0,0,0.75);
+    font-size: 1.3em;
+}
+
+.richtig {
+    background-color: #00cc36 !important;
+    color: white;
+    font-weight: 700;
+}
+
+.logged {
+    background-color: #dbad07;
+    color: white;
+    font-weight: 700;
+}

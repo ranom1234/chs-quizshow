@@ -95,6 +95,75 @@ class GetQuizData extends Database {
 
         $stmt = $this->connection->prepare("UPDATE `fragen` SET `aktiv`=1 WHERE `fragenid` = $id");
         $stmt->execute();
+
+
+        ///ICH DREH DURCH
+        /// FRAGT MICH NICHT WIESO DAS EIN MEHRDIMENSIONALES ARRAY WIRD....
+        $stmt = $this->connection->prepare("SELECT * FROM `fragen` WHERE `fragenid` = $id LIMIT 1");
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $handle = fopen("frage.txt", "w");
+        fwrite($handle, "".$result[0]["frage"].";" .$result[0]["antwort1"].";" .$result[0]["antwort2"].";" .$result[0]["antwort3"].";" .$result[0]["antwort4"].";".$result[0]["antwortrichtig"].";false;0");
+        fclose($handle);
+    }
+
+    public function makeResultPublic() {
+        $handle = fopen("frage.txt", "r");
+        $content = fgets($handle);
+        $content_array = explode(";", $content);
+        fclose($handle);
+
+        $handle = fopen("frage.txt", "w");
+        $content_array[6] = "true";
+        $content = implode(";", $content_array);
+        fwrite($handle, $content);
+        fclose($handle);
+    }
+
+    public function do5050() {
+        $handle = fopen("frage.txt", "r");
+        $content = fgets($handle);
+        $content_array = explode(";", $content);
+        fclose($handle);
+        $correct = $content_array[5];
+
+        $count = 0;
+        //Checken ob bereits 2 leer sind
+        for ($i = 1; $i <=4; $i++) {
+            if($content_array[$i] == "---") {
+                $count++;
+            }
+        }
+        if($count >= 2) {
+            exit();
+        }
+
+        //2 Optionen die falsch sind löschen
+        for($i = 0; $i <= 1; $i++) {
+            $delete = $correct;
+            while($delete == $correct || $content_array[$delete] == "---") {
+                $delete = rand(1,4);
+            }
+            $content_array[$delete] = "---";
+        }
+
+        $handle = fopen("frage.txt", "w");
+        $content = implode(";", $content_array);
+        fwrite($handle, $content);
+        fclose($handle);
+    }
+
+    public function setAnswer_active($id) {
+        $handle = fopen("frage.txt", "r");
+        $content = fgets($handle);
+        $content_array = explode(";", $content);
+        fclose($handle);
+
+        $handle = fopen("frage.txt", "w");
+        $content_array[7] = $id;
+        $content = implode(";", $content_array);
+        fwrite($handle, $content);
+        fclose($handle);
     }
 
     public function deleteQuestion($id) {

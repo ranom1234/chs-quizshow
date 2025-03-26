@@ -53,6 +53,7 @@
 
     <h2>Aktionen</h2>
     <a href="fragen.php" class="btn btn-primary action-btn"><i class="fa-solid fa-square-question"></i> Fragen suchen (Mit Lösung)</a><br>
+      <a href="frage.php" class="btn btn-primary action-btn"><i class="fa-solid fa-question"></i> Zur Stream Übersicht</a><br>
     <a href="new_game.php" class="btn btn-secondary action-btn"><i class="fa-solid fa-gamepad"></i> Neues Spiel starten</a><br>
     <a href="Admin/manage_themes.php" class="btn btn-secondary action-btn <?php if($_SESSION["role"] != "1") {echo "disabled";}?>"><i class="fa-solid fa-pen-to-square"></i> Themen verwalten</a><br>
     <a href="Admin/manage_questions.php" class="btn btn-secondary action-btn <?php if($_SESSION["role"] != "1") {echo "disabled";}?>"><i class="fa-solid fa-pen-to-square"></i> Fragen verwalten</a><br>
