@@ -44,7 +44,7 @@
     Hier können Fragen nach ID gesucht werden, die Lösungen werden direkt mit angezeigt und markiert.
     </div>
 
-    <h1>Fragensuche</h1>
+    <h1>Fragensuche / Spielverwaltung</h1>
 
     <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="get">
       <div class="form-floating mb-3">
@@ -55,9 +55,12 @@
     </form>
 
     <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
-      <input type="submit" value="Aktive Frage anzeigen" class="btn btn-success action-btn " name="show_active">
+      <input type="submit" value="Aktive Frage anzeigen" class="btn btn-success action-btn " name="show_active"><br>
+        <input type="submit" value="Frage beantwortet (Lösung im Stream anzeigen)" class="btn btn-warning action-btn <?php if($_SESSION["role"] != 1 && $_SESSION["role"] != 2) {echo "invisible";}?>" name="show_result"><br>
+        <input type="submit" value="50/50 Joker" class="btn btn-dark action-btn <?php if($_SESSION["role"] != 1 && $_SESSION["role"] != 2) {echo "invisible";}?>" name="5050">
     </form>
-    <a class="btn btn-danger action-btn <?php if($_SESSION["role"] != 1 && $_SESSION["role"] != 2) {echo "invisible";}?>" data-bs-toggle="modal" data-bs-target="#setactive">Aktive Frage setzen</a>    
+    <a class="btn btn-danger action-btn <?php if($_SESSION["role"] != 1 && $_SESSION["role"] != 2) {echo "invisible";}?>" data-bs-toggle="modal" data-bs-target="#setactive">Aktive Frage setzen</a>
+      <a class="btn btn-warning action-btn <?php if($_SESSION["role"] != 1 && $_SESSION["role"] != 2) {echo "invisible";}?>" data-bs-toggle="modal" data-bs-target="#setchosen">Gewählte Antwort setzen</a>
 
     
     <?php 
@@ -125,6 +128,22 @@
           }
         }
 
+        //Richtige Antwort grün färben
+        if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["show_result"])) {
+            require_once("./Assets/Classes/Database.php");
+            require_once("./Assets/Classes/GetQuizData.php");
+            $result = new GetQuizData();
+            $result->makeResultPublic();
+        }
+
+        //50/50 Joker
+        if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["5050"])) {
+            require_once("./Assets/Classes/Database.php");
+            require_once("./Assets/Classes/GetQuizData.php");
+            $result = new GetQuizData();
+            $result->do5050();
+        }
+
         
     
     ?>
@@ -153,6 +172,28 @@
     </div>
   </div>
 </div>
+
+
+  <div class="modal fade" id="setchosen" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Gewählte antwort setzen</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+              <div class="modal-body">
+                  <?php $allowed=true; include("set_answer_inc.php");?>
+              </div>
+
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abbrechen</button>
+                  <input type="submit" name="set_chosen" class="btn btn-primary" value="Antwort setzen"></form>
+              </div>
+          </div>
+      </div>
+  </div>
+
   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
