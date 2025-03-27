@@ -56,10 +56,12 @@
 
     <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
       <input type="submit" value="Aktive Frage anzeigen" class="btn btn-success action-btn " name="show_active"><br>
-        <input type="submit" value="Frage beantwortet (Lösung im Stream anzeigen)" class="btn btn-warning action-btn <?php if($_SESSION["role"] != 1 && $_SESSION["role"] != 2) {echo "invisible";}?>" name="show_result"><br>
+        <input type="submit" value="Frage beantwortet (Lösung im Stream anzeigen)" class="btn btn-danger action-btn <?php if($_SESSION["role"] != 1 && $_SESSION["role"] != 2) {echo "invisible";}?>" name="show_result"><br>
         <input type="submit" value="50/50 Joker" class="btn btn-dark action-btn <?php if($_SESSION["role"] != 1 && $_SESSION["role"] != 2) {echo "invisible";}?>" name="5050">
+        <input type="submit" value="Telefon Joker" class="btn btn-dark action-btn <?php if($_SESSION["role"] != 1 && $_SESSION["role"] != 2) {echo "invisible";}?>" name="TJ">
+        <input type="submit" value="Publikums Joker" class="btn btn-dark action-btn <?php if($_SESSION["role"] != 1 && $_SESSION["role"] != 2) {echo "invisible";}?>" name="PJ">
     </form>
-    <a class="btn btn-danger action-btn <?php if($_SESSION["role"] != 1 && $_SESSION["role"] != 2) {echo "invisible";}?>" data-bs-toggle="modal" data-bs-target="#setactive">Aktive Frage setzen</a>
+    <a class="btn btn-warning action-btn <?php if($_SESSION["role"] != 1 && $_SESSION["role"] != 2) {echo "invisible";}?>" data-bs-toggle="modal" data-bs-target="#setactive">Aktive Frage setzen</a>
       <a class="btn btn-warning action-btn <?php if($_SESSION["role"] != 1 && $_SESSION["role"] != 2) {echo "invisible";}?>" data-bs-toggle="modal" data-bs-target="#setchosen">Gewählte Antwort setzen</a>
 
     
@@ -142,6 +144,21 @@
             require_once("./Assets/Classes/GetQuizData.php");
             $result = new GetQuizData();
             $result->do5050();
+        }
+
+        //Publikums Joker
+        if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["PJ"])) {
+            require_once("./Assets/Classes/Database.php");
+            require_once("./Assets/Classes/GetQuizData.php");
+            $result = new GetQuizData();
+            $result->doJoker("PJ");
+        }
+        //Telefon Joker
+        if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["TJ"])) {
+            require_once("./Assets/Classes/Database.php");
+            require_once("./Assets/Classes/GetQuizData.php");
+            $result = new GetQuizData();
+            $result->doJoker("TJ");
         }
 
         
