@@ -39,7 +39,37 @@ function getQuestion() {
             document.querySelector(".antwortcontainer.a3").classList.remove("logged");
             document.querySelector(".antwortcontainer.a4").classList.remove("logged");
         }
+
+
+        //50/50 Joker anzeigen
+        if(result[8] == "50") {
+            document.querySelector("#jokercontainer").classList.remove("hidden");
+            document.querySelector("#joker-type").classList.add("fa-circle-half-stroke");
+            document.querySelector("#questioncontainer").classList.add("right-margin");
+        }
+        //Telefon Joker anzeigen
+        else if(result[8] == "TJ") {
+            document.querySelector("#jokercontainer").classList.remove("hidden");
+            document.querySelector("#joker-type").classList.add("fa-phone");
+            document.querySelector("#questioncontainer").classList.add("right-margin");
+        }
+        //Publikums Joker anzeigen
+        else if(result[8] == "PJ") {
+            document.querySelector("#jokercontainer").classList.remove("hidden");
+            document.querySelector("#joker-type").classList.add("fa-people-group");
+            document.querySelector("#questioncontainer").classList.add("right-margin");
+        }
+        else {
+            document.querySelector("#jokercontainer").classList.add("hidden");
+            document.querySelector("#joker-type").classList.remove("fa-people-group");
+            document.querySelector("#joker-type").classList.remove("fa-circle-half-stroke");
+            document.querySelector("#joker-type").classList.remove("fa-phone");
+            document.querySelector("#questioncontainer").classList.remove("right-margin");
+        }
+
+
     });
+
 }
 
 

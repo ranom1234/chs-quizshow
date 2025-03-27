@@ -18,8 +18,11 @@
 <div class="frageview">
     <div class="container text-center">
         <div class="row">
-            <div class="col-12 fragecontainer">
+            <div id="questioncontainer" class="col fragecontainer">
                 <span id="frage">Frage</span>
+            </div>
+            <div id="jokercontainer" class="col-1 fragecontainer hidden">
+                <i id="joker-type" class="fa-solid"></i>
             </div>
         </div>
 

@@ -103,7 +103,7 @@ class GetQuizData extends Database {
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $handle = fopen("frage.txt", "w");
-        fwrite($handle, "".$result[0]["frage"].";" .$result[0]["antwort1"].";" .$result[0]["antwort2"].";" .$result[0]["antwort3"].";" .$result[0]["antwort4"].";".$result[0]["antwortrichtig"].";false;0");
+        fwrite($handle, "".$result[0]["frage"].";" .$result[0]["antwort1"].";" .$result[0]["antwort2"].";" .$result[0]["antwort3"].";" .$result[0]["antwort4"].";".$result[0]["antwortrichtig"].";false;0;/");
         fclose($handle);
     }
 
@@ -148,6 +148,20 @@ class GetQuizData extends Database {
         }
 
         $handle = fopen("frage.txt", "w");
+        $content_array[8] = "50";
+        $content = implode(";", $content_array);
+        fwrite($handle, $content);
+        fclose($handle);
+    }
+
+    public function doJoker($joker) {
+        $handle = fopen("frage.txt", "r");
+        $content = fgets($handle);
+        $content_array = explode(";", $content);
+        fclose($handle);
+
+        $handle = fopen("frage.txt", "w");
+        $content_array[8] = $joker;
         $content = implode(";", $content_array);
         fwrite($handle, $content);
         fclose($handle);
