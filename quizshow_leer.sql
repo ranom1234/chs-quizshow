@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 17. Jan 2025 um 10:21
--- Server-Version: 11.6.2-MariaDB
--- PHP-Version: 8.3.15
+-- Erstellungszeit: 27. Mrz 2025 um 18:52
+-- Server-Version: 11.7.2-MariaDB
+-- PHP-Version: 8.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `quizshow`
+-- Datenbank: `quizshow_leer`
 --
 
 -- --------------------------------------------------------
@@ -112,7 +112,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`uid`, `username`, `password`, `role`) VALUES
-(1, 'admin', '$2y$10$2vHGdNJ2Al4M7VX0vfnkXOMN.8v069U..azXO0qR9826KGzjbWBHu', 1);
+(1, 'admin', '$2y$12$lQTRYT3dfvifcm6qmJW3HO5MsEiczPThfIoW765BkIacK0b8zt1Yu', 1);
 
 --
 -- Indizes der exportierten Tabellen

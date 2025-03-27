@@ -9,7 +9,7 @@
  * CSV-File in den Admin Order legen
  *
  */
-$file = "test.csv";
+$file = "FILENAME.CSV";
 $handle = fopen($file, "r");
 
 
