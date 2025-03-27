@@ -21,8 +21,6 @@ $content = explode(";", fgets($handle));
 while (($content = fgetcsv($handle, 1000, ';', '"')) !== false) {
     require_once("../Assets/Classes/CONSTANTS.php");
 
-    echo HOST;
-
     $con = mysqli_connect(HOST,USERNAME,PASSWORD, TABLE);
     $frage = $content[0];
     $thema = $content[1];
@@ -33,5 +31,6 @@ while (($content = fgetcsv($handle, 1000, ';', '"')) !== false) {
     $a4 = $content[6];
     $ar = $content[7];
     $stmt = mysqli_query($con, "INSERT INTO `fragen`(`fragenid`, `frage`, `thema`, `schwierigkeit`, `antwort1`, `antwort2`, `antwort3`, `antwort4`, `antwortrichtig`, `gestellt`, `aktiv`) VALUES (NULL,'$frage','$thema','$schw','$a1','$a2','$a3','$a4','$ar',0,0)");
+    echo "Frage: $frage hinzugefügt.<br>";
 }
 
