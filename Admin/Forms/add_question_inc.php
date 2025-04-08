@@ -9,7 +9,7 @@ if($_SESSION["role"] == "1" && $allowed) {
 
   if(isset($_POST["add_question"])) {
     
-    $newquestion = new AddQuestion($_POST["frage"], $_POST["thema"], $_POST["hardness"], $_POST["a1"], $_POST["a2"], $_POST["a3"], $_POST["a4"], $_POST["ar"]);
+    $newquestion = new AddQuestion($_POST["frage"], $_POST["thema"], $_POST["hardness"], $_POST["a1"], $_POST["a2"], $_POST["a3"], $_POST["a4"], $_POST["ar"], $_POST["e"]);
     $newquestion->AddFrage();
   }
 }
@@ -85,6 +85,11 @@ else {
           <option value="4">4</option>
         </select>
         <label for="floatingPassword">Richtige Antwort</label>
+      </div>
+
+      <div class="form-floating mb-3">
+          <textarea class="form-control" id="floatingInput" name="e" required></textarea>
+          <label for="floatingInput">Erklärung</label>
       </div>
 
 
