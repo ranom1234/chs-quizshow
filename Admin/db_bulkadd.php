@@ -30,7 +30,8 @@ while (($content = fgetcsv($handle, 1000, ';', '"')) !== false) {
     $a3 = $content[5];
     $a4 = $content[6];
     $ar = $content[7];
-    $stmt = mysqli_query($con, "INSERT INTO `fragen`(`fragenid`, `frage`, `thema`, `schwierigkeit`, `antwort1`, `antwort2`, `antwort3`, `antwort4`, `antwortrichtig`, `gestellt`, `aktiv`) VALUES (NULL,'$frage','$thema','$schw','$a1','$a2','$a3','$a4','$ar',0,0)");
+    $e = $content[8];
+    $stmt = mysqli_query($con, "INSERT INTO `fragen`(`fragenid`, `frage`, `thema`, `schwierigkeit`, `antwort1`, `antwort2`, `antwort3`, `antwort4`, `antwortrichtig`, `gestellt`, `aktiv`, `erklaerung`) VALUES (NULL,'$frage','$thema','$schw','$a1','$a2','$a3','$a4','$ar',0,0, '$e')");
     echo "Frage: $frage hinzugefügt.<br>";
 }
 

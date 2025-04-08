@@ -91,7 +91,8 @@
                     <b>Antwort 4:</b> '. $r["antwort4"] .'<br><br>
 
                     <b style="color: red;">Richtige Antwort:</b> Antwort '. $r["antwortrichtig"] .'<br> 
-                    <b>Gestellt:</b> '. $r["gestellt"] .' mal<br>                   
+                    <b>Gestellt:</b> '. $r["gestellt"] .' mal<br>
+                    <b style="color: green;">Erklärung:</b> '. $r["erklaerung"] .'<br>                    
                     ';
                 }
 
