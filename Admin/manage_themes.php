@@ -54,7 +54,7 @@
     </nav>
 
     
-  <div class="container-overlay">
+  <div class="container-overlay" style="height: 100% !important;">
     <h1>Themen Verwalten</h1>
     <a class="btn btn-primary action-btn" data-bs-toggle="modal" data-bs-target="#addthema">Thema hinzufügen</a>    
     <table class="table table-striped" style="margin-top: 2em;">
