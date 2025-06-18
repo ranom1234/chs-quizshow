@@ -103,7 +103,7 @@ class GetQuizData extends Database {
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $handle = fopen("frage.txt", "w");
-        fwrite($handle, "".$result[0]["frage"].";" .$result[0]["antwort1"].";" .$result[0]["antwort2"].";" .$result[0]["antwort3"].";" .$result[0]["antwort4"].";".$result[0]["antwortrichtig"].";false;0;/");
+        fwrite($handle, "".$result[0]["frage"].";A: " .$result[0]["antwort1"].";B: " .$result[0]["antwort2"].";C: " .$result[0]["antwort3"].";D: " .$result[0]["antwort4"].";".$result[0]["antwortrichtig"].";false;0;/");
         fclose($handle);
     }
 
