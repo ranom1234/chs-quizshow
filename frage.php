@@ -16,7 +16,7 @@
 </head>
 <body>
 <div class="frageview">
-    <div class="container text-center">
+    <div class="text-center">
         <div class="row">
             <div id="questioncontainer" class="col fragecontainer">
                 <span id="frage">Frage</span>
