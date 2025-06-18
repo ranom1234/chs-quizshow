@@ -43,13 +43,13 @@ body {
     -moz-box-shadow: -3px 6px 23px -8px rgba(0,0,0,0.75);
     box-shadow: -3px 6px 23px -8px rgba(0,0,0,0.75);
     font-weight: 600;
-    font-size: 2em;
+    font-size: 2.3em;
 }
 
 .antwortcontainer {
     background-color: white;
     border-radius: 20px;
-    padding: 1em;
+    padding: 0.8em;
     margin-bottom: 0.5em;
     margin-right: auto;
     margin-left: auto;
@@ -57,7 +57,7 @@ body {
     -webkit-box-shadow: -3px 6px 23px -8px rgba(0,0,0,0.75);
     -moz-box-shadow: -3px 6px 23px -8px rgba(0,0,0,0.75);
     box-shadow: -3px 6px 23px -8px rgba(0,0,0,0.75);
-    font-size: 1.3em;
+    font-size: 1.6em;
 }
 
 .richtig {
