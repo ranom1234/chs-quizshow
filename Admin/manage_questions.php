@@ -56,8 +56,9 @@
     
   <div class="container-overlay">
     <h1>Fragen Verwalten</h1>
-    <a class="btn btn-primary action-btn" data-bs-toggle="modal" data-bs-target="#addquestion">Frage hinzufügen</a>    
-    <table class="table table-striped" style="margin-top: 2em;">
+    <a class="btn btn-primary action-btn" data-bs-toggle="modal" data-bs-target="#addquestion">Frage hinzufügen</a>
+      <a class="btn btn-success action-btn" data-bs-toggle="modal" data-bs-target="#bulkaddquestion">Masseneinfügen</a>
+      <table class="table table-striped" style="margin-top: 2em;">
     <thead>
         <tr>
         <th scope="col">ID</th>
@@ -98,6 +99,26 @@
     </div>
   </div>
 </div>
+
+  <div class="modal fade" id="bulkaddquestion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Fragen in Masse hinzufügen</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+              <div class="modal-body">
+                  <?php $allowed=true; include("./Forms/bulkadd_question_inc.php");?>
+              </div>
+
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abbrechen</button>
+                  <input type="submit" name="bulkadd_question" class="btn btn-primary" value="Fragen hinzufügen"></form>
+              </div>
+          </div>
+      </div>
+  </div>
 
 
 

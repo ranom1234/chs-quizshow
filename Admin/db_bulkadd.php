@@ -1,4 +1,7 @@
 <?php
+//OUTDATED -> ÜBER ONLINE TOOL ADMINISTRATION AB JZ
+
+
 
 /**
  * Bei $file bitte in die Anführungsstriche gestellt
