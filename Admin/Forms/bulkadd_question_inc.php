@@ -23,15 +23,15 @@ if($_SESSION["role"] == "1" && $allowed) {
 
               while (($content = fgetcsv($handle, 1000, ';', '"')) !== false) {
                   // Optional: Daten validieren/trimmen
-                  $frage = mysqli_real_escape_string($con, $content[0]);
-                  $thema = mysqli_real_escape_string($con, $content[1]);
-                  $schw = mysqli_real_escape_string($con, $content[2]);
-                  $a1 = mysqli_real_escape_string($con, $content[3]);
-                  $a2 = mysqli_real_escape_string($con, $content[4]);
-                  $a3 = mysqli_real_escape_string($con, $content[5]);
-                  $a4 = mysqli_real_escape_string($con, $content[6]);
-                  $ar = mysqli_real_escape_string($con, $content[7]);
-                  $e  = mysqli_real_escape_string($con, $content[8]);
+                  $frage = mysqli_real_escape_string($con, mb_convert_encoding(trim($content[0]), 'UTF-8', 'ISO-8859-1'));
+                  $thema = mysqli_real_escape_string($con, mb_convert_encoding(trim($content[1]), 'UTF-8', 'ISO-8859-1'));
+                  $schw = mysqli_real_escape_string($con, mb_convert_encoding(trim($content[2]), 'UTF-8', 'ISO-8859-1'));
+                  $a1 = mysqli_real_escape_string($con, mb_convert_encoding(trim($content[3]), 'UTF-8', 'ISO-8859-1'));
+                  $a2 = mysqli_real_escape_string($con, mb_convert_encoding(trim($content[4]), 'UTF-8', 'ISO-8859-1'));
+                  $a3 = mysqli_real_escape_string($con, mb_convert_encoding(trim($content[5]), 'UTF-8', 'ISO-8859-1'));
+                  $a4 = mysqli_real_escape_string($con, mb_convert_encoding(trim($content[6]), 'UTF-8', 'ISO-8859-1'));
+                  $ar = mysqli_real_escape_string($con, mb_convert_encoding(trim($content[7]), 'UTF-8', 'ISO-8859-1'));
+                  $e = mysqli_real_escape_string($con, mb_convert_encoding(trim($content[8]), 'UTF-8', 'ISO-8859-1'));
 
                   $stmt = mysqli_query($con, "INSERT INTO `fragen`(`fragenid`, `frage`, `thema`, `schwierigkeit`, `antwort1`, `antwort2`, `antwort3`, `antwort4`, `antwortrichtig`, `gestellt`, `aktiv`, `erklaerung`) VALUES (NULL,'$frage','$thema','$schw','$a1','$a2','$a3','$a4','$ar',0,0,'$e')");
               }
